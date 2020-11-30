@@ -1,10 +1,14 @@
 pipeline {
     agent any
 
-parameters {
-    choice(name="VERSION", choices:['1.0', '2.0', '3.0','4.0'], description:"choose the version")
-    booleanParam(name="executeTests", defaultValue:true, description:"Execute Test")
-}
+
+
+  parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+        booleanParam(name="executeTests", defaultValue:true, description:"Execute Test")
+    }
+
+    
     stages {
         stage('Build') {
             steps {
