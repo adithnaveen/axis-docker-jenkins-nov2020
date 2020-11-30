@@ -5,7 +5,7 @@ pipeline {
 
   parameters {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
-        booleanParam(name="executeTests", defaultValue:true, description:"Execute Test")
+        booleanParam(name:'executeTests', defaultValue:true, description:'Execute Test')
     }
 
     
