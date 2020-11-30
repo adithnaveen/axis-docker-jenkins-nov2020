@@ -1,0 +1,32 @@
+version: '3.9'
+
+services: 
+  database: 
+    container_name: mongo 
+    image: mongo 
+    command: mongod 
+    ports: 
+      - 27017:27017 
+    restart: always 
+    volumes: 
+      - mongo-data:/data/db 
+
+ 
+  axis-app: 
+    build: 
+      context: . 
+    image: axis-img-comp
+    container_name: axis-app-comp 
+    restart: always
+    ports: 
+      - 9090:9090 
+    depends_on: 
+      - database
+
+networks: 
+    default: 
+      external: 
+        name: axis-network  
+volumes: 
+    mongo-data: 
+      driver: local
